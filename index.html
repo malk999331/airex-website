@@ -42,7 +42,7 @@
     }
 
     .hero {
-      background: url('https://sdmntprwestcentralus.oaiusercontent.com/files/00000000-4410-61fb-acf5-5e7e676ae219/raw?se=2025-07-23T07%3A22%3A31Z&sp=r&sv=2024-08-04&sr=b&scid=b4a4a13b-24f4-5619-980f-4f00e8cebb8b&skoid=0a4a0f0c-99ac-4752-9d87-cfac036fa93f&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-07-23T06%3A19%3A59Z&ske=2025-07-24T06%3A19%3A59Z&sks=b&skv=2024-08-04&sig=L2/jDx2MB/JyBn1C9luXHdUhe9qy/ANUQpsUjpNAmBE%3D') center/cover no-repeat;
+      background: url('https://i.imgur.com/sP2xwOb.jpeg') center/cover no-repeat;
       height: 400px;
       display: flex;
       align-items: center;
@@ -83,20 +83,27 @@
       border-radius: 6px;
       cursor: pointer;
       font-weight: bold;
-      text-decoration: none;
-      display: inline-block;
+      margin-top: 10px;
     }
 
     .btn:hover {
       background: #00c5aa;
     }
 
-    .buy-form {
-      display: none;
+    .form {
       margin-top: 15px;
-      background: #222;
+      background: #2a2a2a;
       padding: 15px;
-      border-radius: 10px;
+      border-radius: 8px;
+    }
+
+    .form input, .form select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 4px;
     }
 
     footer {
@@ -135,21 +142,42 @@
       <h3>رتبة VIP</h3>
       <p>مميزات خاصة + أدوات قوية + صندوق VIP كل 24 ساعه</p>
       <p>السعر: 2.99$</p>
-      <a href="https://paypal.me/YourLinkHere" class="btn" target="_blank">شراء</a>
+      <div class="form">
+        <input type="text" placeholder="اسم ماينكرافت" id="vip-name">
+        <select id="vip-pay">
+          <option>PayPal</option>
+          <option>FIB</option>
+        </select>
+        <button class="btn" onclick="submitForm('VIP', '2.99', 'vip-name', 'vip-pay')">تأكيد الطلب</button>
+      </div>
     </div>
 
     <div class="store-item">
       <h3>رتبة MVP</h3>
       <p>مميزات خاصة + أدوات قوية</p>
       <p>السعر: 5.99$</p>
-      <a href="https://paypal.me/YourLinkHere" class="btn" target="_blank">شراء</a>
+      <div class="form">
+        <input type="text" placeholder="اسم ماينكرافت" id="mvp-name">
+        <select id="mvp-pay">
+          <option>PayPal</option>
+          <option>FIB</option>
+        </select>
+        <button class="btn" onclick="submitForm('MVP', '5.99', 'mvp-name', 'mvp-pay')">تأكيد الطلب</button>
+      </div>
     </div>
 
     <div class="store-item">
       <h3>رتبة MYTHIC</h3>
       <p>كل مميزات السيرفر + أدوات خارقة</p>
       <p>السعر: 9.99$</p>
-      <a href="https://paypal.me/YourLinkHere" class="btn" target="_blank">شراء</a>
+      <div class="form">
+        <input type="text" placeholder="اسم ماينكرافت" id="mythic-name">
+        <select id="mythic-pay">
+          <option>PayPal</option>
+          <option>FIB</option>
+        </select>
+        <button class="btn" onclick="submitForm('MYTHIC', '9.99', 'mythic-name', 'mythic-pay')">تأكيد الطلب</button>
+      </div>
     </div>
   </section>
 
@@ -188,13 +216,11 @@
     </div>
   </section>
 
-  <!-- عن السيرفر -->
   <section class="section" id="about">
     <h2>👑 عن السيرفر</h2>
     <p>سيرفر Airex Network يقدم تجربة ممتعة ومنافسة في عالم Minecraft. استمتع بالـ PvP، البناء، السيرفايفل، والمودات الجديدة! نرحب بالجميع سواء كنت مبتدئ أو محترف.</p>
   </section>
 
-  <!-- الدعم -->
   <section class="section" id="contact">
     <h2>📞 الدعم</h2>
     <p>انضم إلى ديسكورد للتواصل مع الإدارة وطلب المساعدة:</p>
@@ -204,6 +230,18 @@
   <footer>
     &copy; 2025 Airex Network - جميع الحقوق محفوظة
   </footer>
+
+  <script>
+    function submitForm(rank, price, nameId, payId) {
+      const name = document.getElementById(nameId).value;
+      const pay = document.getElementById(payId).value;
+      if (!name) {
+        alert("يرجى كتابة اسم ماينكرافت.");
+        return;
+      }
+      alert(`طلب جديد:\nالرتبة: ${rank}\nالسعر: ${price}$\nالاسم: ${name}\nطريقة الدفع: ${pay}`);
+    }
+  </script>
 
 </body>
 </html>
