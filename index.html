@@ -75,6 +75,12 @@
       color: #00ffd5;
     }
 
+    .small-note {
+      font-size: 13px;
+      color: #aaa;
+      margin-top: 5px;
+    }
+
     .btn {
       background: #00ffd5;
       color: #000;
@@ -127,16 +133,15 @@
   <section class="section" id="store">
     <h2>🛒 المتجر</h2>
 
-    <!-- ⬇️ الرتب + النموذج أسفل كل واحدة -->
     <script>
       const ranks = [
-        { name: 'Gear', price: '0.49' },
-        { name: 'VIP', price: '1.00' },
-        { name: 'MVP', price: '1.50' },
-        { name: 'PVP', price: '1.99' },
-        { name: 'SUPER', price: '2.99' },
-        { name: 'شالكر', price: '1.49' },
-        { name: 'Coin', price: '1.00' },
+        { name: 'Gear', price: '0.49', desc: 'مميزات خاصة في اللعبة + صندوق عشوائي كل 24 ساعه' },
+        { name: 'VIP', price: '1.00', desc: 'مميزات خاصة + أدوات قوية + صندوق VIP كل 24 ساعه' },
+        { name: 'MVP', price: '1.50', desc: 'مميزات خاصة + أدوات قوية' },
+        { name: 'PVP', price: '1.99', desc: 'مميزات خاصة + أدوات قتالية مطورة' },
+        { name: 'SUPER', price: '2.99', desc: 'كل مميزات السيرفر + أدوات خارقة' },
+        { name: 'شالكر بوكس فيه أدوات فل تطويرات', price: '1.49', desc: '' },
+        { name: 'عملة Coin', price: '1.00', desc: 'حسب الكمية المطلوبة', isCoin: true }
       ];
     </script>
 
@@ -164,9 +169,16 @@
     ranks.forEach((rank, index) => {
       const item = document.createElement('div');
       item.className = 'store-item';
+
+      const title = rank.isCoin ? `عملة ${rank.name}` : `رتبة ${rank.name}`;
+      const extra = rank.desc ? `<p>${rank.desc}</p>` : '';
+      const note = rank.isCoin ? `<p class="small-note">حسب الكمية المطلوبة</p>` : '';
+
       item.innerHTML = `
-        <h3>رتبة ${rank.name}</h3>
-        <p>سعر: ${rank.price}$</p>
+        <h3>${title}</h3>
+        ${extra}
+        ${note}
+        <p>السعر: ${rank.price}$</p>
         <button class="btn" onclick="toggleForm(${index})">شراء</button>
         <div id="form-${index}" class="buy-form">
           <label>اسم ماينكرافت:</label><br />
@@ -195,7 +207,7 @@
         return;
       }
 
-      alert(`✅ تم إرسال الطلب:\nالاسم: ${name}\nالرتبة: ${rankName}\nالسعر: ${price}$\nطريقة الدفع: ${method}`);
+      alert(`✅ تم إرسال الطلب:\nالاسم: ${name}\nالعنصر: ${rankName}\nالسعر: ${price}$\nطريقة الدفع: ${method}`);
 
       if (method === "PayPal") {
         window.open("https://paypal.me/YourAccountHere", "_blank");
