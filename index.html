@@ -135,13 +135,13 @@
 
     <script>
       const ranks = [
-        { name: 'Gear', price: '0.49', desc: 'مميزات خاصة في اللعبة + صندوق عشوائي كل 24 ساعه' },
-        { name: 'VIP', price: '1.00', desc: 'مميزات خاصة + أدوات قوية + صندوق VIP كل 24 ساعه' },
-        { name: 'MVP', price: '1.50', desc: 'مميزات خاصة + أدوات قوية' },
-        { name: 'PVP', price: '1.99', desc: 'مميزات خاصة + أدوات قتالية مطورة' },
-        { name: 'SUPER', price: '2.99', desc: 'كل مميزات السيرفر + أدوات خارقة' },
-        { name: 'شالكر بوكس فيه أدوات فل تطويرات', price: '1.49', desc: '' },
-        { name: 'عملة Coin', price: '1.00', desc: 'حسب الكمية المطلوبة', isCoin: true }
+        { name: 'Gear', price: '0.49', desc: 'مميزات خاصة في اللعبة + صندوق عشوائي كل 24 ساعه', isCoin: false, isBox: false },
+        { name: 'VIP', price: '1.00', desc: 'مميزات خاصة + أدوات قوية + صندوق VIP كل 24 ساعه', isCoin: false, isBox: false },
+        { name: 'MVP', price: '1.50', desc: 'مميزات خاصة + أدوات قوية', isCoin: false, isBox: false },
+        { name: 'PVP', price: '1.99', desc: 'مميزات خاصة + أدوات قتالية مطورة', isCoin: false, isBox: false },
+        { name: 'SUPER', price: '2.99', desc: 'كل مميزات السيرفر + أدوات خارقة', isCoin: false, isBox: false },
+        { name: 'شالكر بوكس فيه أدوات فل تطويرات', price: '1.49', desc: '', isCoin: false, isBox: true },
+        { name: 'Coin', price: '1.00', desc: 'حسب الكمية المطلوبة', isCoin: true, isBox: false }
       ];
     </script>
 
@@ -170,7 +170,7 @@
       const item = document.createElement('div');
       item.className = 'store-item';
 
-      const title = rank.isCoin ? `عملة ${rank.name}` : `رتبة ${rank.name}`;
+      const title = rank.isCoin ? `عملة ${rank.name}` : rank.isBox ? `${rank.name}` : `رتبة ${rank.name}`;
       const extra = rank.desc ? `<p>${rank.desc}</p>` : '';
       const note = rank.isCoin ? `<p class="small-note">حسب الكمية المطلوبة</p>` : '';
 
