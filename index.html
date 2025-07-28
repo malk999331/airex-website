@@ -89,6 +89,14 @@
       background: #00c5aa;
     }
 
+    .buy-form {
+      display: none;
+      background: #222;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
     footer {
       text-align: center;
       background: #1f1f1f;
@@ -118,47 +126,34 @@
 
   <section class="section" id="store">
     <h2>🛒 المتجر</h2>
-    
-    <div class="store-item">
-      <h3>رتبة Gear</h3>
-      <p>مميزات خاصة في اللعبة + صندوق عشوائي كل 24 ساعه</p>
-      <button class="btn">شراء - 0.49$</button>
-    </div>
 
- <div class="store-item">
+    <!-- تكرار للرتب -->
+    <div class="store-item">
       <h3>رتبة VIP</h3>
       <p>مميزات خاصة في اللعبة + أدوات قوية + صندوق VIP كل 24 ساعه</p>
-      <button class="btn">شراء - 1$</button>
-    </div>
-
- <div class="store-item">
-      <h3>رتبة MVP</h3>
-      <p>مميزات خاصة في اللعبة + أدوات قوية</p>
-      <button class="btn">شراء - 1.50$</button>
-    </div>
-
- <div class="store-item">
-      <h3>رتبة PVP</h3>
-      <p>مميزات خاصة في اللعبة + أدوات قوية</p>
-      <button class="btn">شراء - 1.99$</button>
+      <button class="btn" onclick="openForm('VIP', '1.00')">شراء - 1$</button>
     </div>
 
     <div class="store-item">
       <h3>رتبة SUPER</h3>
       <p>مميزات خاصة في اللعبة + أدوات قوية</p>
-      <button class="btn">شراء - 2.99$</button>
+      <button class="btn" onclick="openForm('SUPER', '2.99')">شراء - 2.99$</button>
     </div>
 
-    <div class="store-item">
-      <h3>شالكر بوكس بادوات قويه</h3>
-      <p>متضمنات الصندوق - ادوات دايموند مطوره IV</p>
-      <button class="btn">شراء - 1.49$</button>
-    </div>
+    <!-- نموذج الشراء -->
+    <div id="buyForm" class="buy-form">
+      <h3>طلب شراء <span id="rankName">...</span></h3>
+      <label>اسم ماينكرافت:</label><br />
+      <input type="text" id="mcName" placeholder="مثال: Notch" style="width:100%;padding:8px;" /><br /><br />
 
-    <div class="store-item">
-      <h3>عمله coin</h3>
-      <p>على حسب المبلغ الكوين الي تحتاجه </p>
-      <button class="btn">شراء - 1$</button>
+      <label>طريقة الدفع:</label><br />
+      <select id="paymentMethod" style="width:100%;padding:8px;">
+        <option>PayPal</option>
+        <option>رصيد (زين / آسيا / أريدو)</option>
+        <option>تحويل بنكي</option>
+      </select><br /><br />
+
+      <button class="btn" onclick="submitForm()">تأكيد الطلب</button>
     </div>
   </section>
 
@@ -176,6 +171,35 @@
   <footer>
     &copy; 2025 Airex Network - جميع الحقوق محفوظة
   </footer>
+
+  <script>
+    let selectedRank = "";
+    let selectedPrice = "";
+
+    function openForm(rank, price) {
+      selectedRank = rank;
+      selectedPrice = price;
+      document.getElementById('buyForm').style.display = 'block';
+      document.getElementById('rankName').textContent = rank + " - " + price + "$";
+    }
+
+    function submitForm() {
+      const name = document.getElementById('mcName').value;
+      const payment = document.getElementById('paymentMethod').value;
+
+      if (!name) {
+        alert("يرجى كتابة اسم ماينكرافت.");
+        return;
+      }
+
+      alert(`✅ تم إرسال الطلب:\nالاسم: ${name}\nالرتبة: ${selectedRank}\nالدفع: ${payment}`);
+
+      // رابط بايبال افتراضي (بدّله برابطك لاحقًا)
+      if (payment === "PayPal") {
+        window.open("https://paypal.me/YourAccountHere", "_blank");
+      }
+    }
+  </script>
 
 </body>
 </html>
