@@ -146,7 +146,7 @@
   <section class="section" id="store">
     <h2>🛒 المتجر</h2>
 
-    <!-- رتب -->
+    <!-- الرتب -->
     <div class="store-item">
       <h3>رتبة VIP</h3>
       <p>السعر: 2.99$</p>
@@ -156,6 +156,8 @@
         <select id="vip-pay">
           <option>PayPal</option>
           <option>FIB</option>
+          <option>زين كاش</option>
+          <option>فيزة</option>
         </select>
         <button class="btn" onclick="submitForm('رتبة VIP', '2.99$', 'vip-name', 'vip-pay')">تأكيد الطلب</button>
       </div>
@@ -170,6 +172,8 @@
         <select id="mvp-pay">
           <option>PayPal</option>
           <option>FIB</option>
+          <option>زين كاش</option>
+          <option>فيزة</option>
         </select>
         <button class="btn" onclick="submitForm('رتبة MVP', '5.99$', 'mvp-name', 'mvp-pay')">تأكيد الطلب</button>
       </div>
@@ -184,6 +188,8 @@
         <select id="mythic-pay">
           <option>PayPal</option>
           <option>FIB</option>
+          <option>زين كاش</option>
+          <option>فيزة</option>
         </select>
         <button class="btn" onclick="submitForm('رتبة MYTHIC', '9.99$', 'mythic-name', 'mythic-pay')">تأكيد الطلب</button>
       </div>
@@ -194,75 +200,33 @@
   <section class="section" id="crates">
     <h2>🎁 المفاتيح (Crates)</h2>
 
-    <div class="store-item">
-      <h3>مفتاح GEAR</h3>
-      <p>السعر: 0.49$</p>
-      <button class="btn" onclick="toggleForm('gear')">شراء</button>
-      <div class="form" id="gear">
-        <input type="text" placeholder="اسم ماينكرافت" id="gear-name">
-        <select id="gear-pay">
-          <option>PayPal</option>
-          <option>FIB</option>
-        </select>
-        <button class="btn" onclick="submitForm('مفتاح GEAR', '0.49$', 'gear-name', 'gear-pay')">تأكيد الطلب</button>
-      </div>
-    </div>
-
-    <div class="store-item">
-      <h3>مفتاح VIP</h3>
-      <p>السعر: 1$</p>
-      <button class="btn" onclick="toggleForm('vipkey')">شراء</button>
-      <div class="form" id="vipkey">
-        <input type="text" placeholder="اسم ماينكرافت" id="vipkey-name">
-        <select id="vipkey-pay">
-          <option>PayPal</option>
-          <option>FIB</option>
-        </select>
-        <button class="btn" onclick="submitForm('مفتاح VIP', '1$', 'vipkey-name', 'vipkey-pay')">تأكيد الطلب</button>
-      </div>
-    </div>
-
-    <div class="store-item">
-      <h3>مفتاح MVP</h3>
-      <p>السعر: 1.5$</p>
-      <button class="btn" onclick="toggleForm('mvpkey')">شراء</button>
-      <div class="form" id="mvpkey">
-        <input type="text" placeholder="اسم ماينكرافت" id="mvpkey-name">
-        <select id="mvpkey-pay">
-          <option>PayPal</option>
-          <option>FIB</option>
-        </select>
-        <button class="btn" onclick="submitForm('مفتاح MVP', '1.5$', 'mvpkey-name', 'mvpkey-pay')">تأكيد الطلب</button>
-      </div>
-    </div>
-
-    <div class="store-item">
-      <h3>مفتاح PVP</h3>
-      <p>السعر: 2$</p>
-      <button class="btn" onclick="toggleForm('pvpkey')">شراء</button>
-      <div class="form" id="pvpkey">
-        <input type="text" placeholder="اسم ماينكرافت" id="pvpkey-name">
-        <select id="pvpkey-pay">
-          <option>PayPal</option>
-          <option>FIB</option>
-        </select>
-        <button class="btn" onclick="submitForm('مفتاح PVP', '2$', 'pvpkey-name', 'pvpkey-pay')">تأكيد الطلب</button>
-      </div>
-    </div>
-
-    <div class="store-item">
-      <h3>مفتاح MYTHIC</h3>
-      <p>السعر: 2.99$</p>
-      <button class="btn" onclick="toggleForm('mythickey')">شراء</button>
-      <div class="form" id="mythickey">
-        <input type="text" placeholder="اسم ماينكرافت" id="mythickey-name">
-        <select id="mythickey-pay">
-          <option>PayPal</option>
-          <option>FIB</option>
-        </select>
-        <button class="btn" onclick="submitForm('مفتاح MYTHIC', '2.99$', 'mythickey-name', 'mythickey-pay')">تأكيد الطلب</button>
-      </div>
-    </div>
+    <!-- تكرار نفس النموذج مع خيارات الدفع الجديدة -->
+    <script>
+      const crates = [
+        { id: 'gear', name: 'مفتاح GEAR', price: '0.49$' },
+        { id: 'vipkey', name: 'مفتاح VIP', price: '1$' },
+        { id: 'mvpkey', name: 'مفتاح MVP', price: '1.5$' },
+        { id: 'pvpkey', name: 'مفتاح PVP', price: '2$' },
+        { id: 'mythickey', name: 'مفتاح MYTHIC', price: '2.99$' },
+      ];
+      document.write(crates.map(crate => `
+        <div class="store-item">
+          <h3>${crate.name}</h3>
+          <p>السعر: ${crate.price}</p>
+          <button class="btn" onclick="toggleForm('${crate.id}')">شراء</button>
+          <div class="form" id="${crate.id}">
+            <input type="text" placeholder="اسم ماينكرافت" id="${crate.id}-name">
+            <select id="${crate.id}-pay">
+              <option>PayPal</option>
+              <option>FIB</option>
+              <option>زين كاش</option>
+              <option>فيزة</option>
+            </select>
+            <button class="btn" onclick="submitForm('${crate.name}', '${crate.price}', '${crate.id}-name', '${crate.id}-pay')">تأكيد الطلب</button>
+          </div>
+        </div>
+      `).join(''));
+    </script>
   </section>
 
   <section class="section" id="about">
