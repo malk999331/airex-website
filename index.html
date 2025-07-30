@@ -47,7 +47,7 @@
     }
 
     .hero {
-      background: url('https://cdn.discordapp.com/attachments/1395454380769153115/1396930189136756888/ChatGPT_Image_Jul_21_2025_11_01_39_PM.png?ex=688a6c1e&is=68891a9e&hm=f85c348a25a6d9aa9567ceede22e46824a8df1d1efdbc170ecc8e4ad06423e54&') center/cover no-repeat;
+      background: url('https://cdn.discordapp.com/attachments/1395454380769153115/1396930189136756888/ChatGPT_Image_Jul_21_2025_11_01_39_PM.png') center/cover no-repeat;
       height: 400px;
       display: flex;
       align-items: center;
@@ -123,7 +123,6 @@
   </style>
 </head>
 <body>
-
   <header>
     <img src="https://cdn.discordapp.com/avatars/1269220546617282662/24207b94de7b8287ea14f16fd193c60a.png?size=1024" alt="logo">
     <h1>Airex Network</h1>
@@ -142,91 +141,30 @@
     <h2>انضم إلينا الآن<br>IP: mythicsmp.prmag.xyz:25580</h2>
   </section>
 
-  <!-- المتجر -->
-  <section class="section" id="store">
-    <h2>🛒 المتجر</h2>
-
-    <!-- الرتب -->
-    <div class="store-item">
-      <h3>رتبة VIP</h3>
-      <p>السعر: 2.99$</p>
-      <button class="btn" onclick="toggleForm('vip')">شراء</button>
-      <div class="form" id="vip">
-        <input type="text" placeholder="اسم ماينكرافت" id="vip-name">
-        <select id="vip-pay">
-          <option>PayPal</option>
-          <option>FIB</option>
-          <option>زين كاش</option>
-          <option>فيزة</option>
-        </select>
-        <button class="btn" onclick="submitForm('رتبة VIP', '2.99$', 'vip-name', 'vip-pay')">تأكيد الطلب</button>
-      </div>
-    </div>
-
-    <div class="store-item">
-      <h3>رتبة MVP</h3>
-      <p>السعر: 5.99$</p>
-      <button class="btn" onclick="toggleForm('mvp')">شراء</button>
-      <div class="form" id="mvp">
-        <input type="text" placeholder="اسم ماينكرافت" id="mvp-name">
-        <select id="mvp-pay">
-          <option>PayPal</option>
-          <option>FIB</option>
-          <option>زين كاش</option>
-          <option>فيزة</option>
-        </select>
-        <button class="btn" onclick="submitForm('رتبة MVP', '5.99$', 'mvp-name', 'mvp-pay')">تأكيد الطلب</button>
-      </div>
-    </div>
-
-    <div class="store-item">
-      <h3>رتبة MYTHIC</h3>
-      <p>السعر: 9.99$</p>
-      <button class="btn" onclick="toggleForm('mythic')">شراء</button>
-      <div class="form" id="mythic">
-        <input type="text" placeholder="اسم ماينكرافت" id="mythic-name">
-        <select id="mythic-pay">
-          <option>PayPal</option>
-          <option>FIB</option>
-          <option>زين كاش</option>
-          <option>فيزة</option>
-        </select>
-        <button class="btn" onclick="submitForm('رتبة MYTHIC', '9.99$', 'mythic-name', 'mythic-pay')">تأكيد الطلب</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- المفاتيح -->
+  <!-- المفاتيح مع طرق الدفع الإضافية -->
   <section class="section" id="crates">
     <h2>🎁 المفاتيح (Crates)</h2>
 
-    <!-- تكرار نفس النموذج مع خيارات الدفع الجديدة -->
-    <script>
-      const crates = [
-        { id: 'gear', name: 'مفتاح GEAR', price: '0.49$' },
-        { id: 'vipkey', name: 'مفتاح VIP', price: '1$' },
-        { id: 'mvpkey', name: 'مفتاح MVP', price: '1.5$' },
-        { id: 'pvpkey', name: 'مفتاح PVP', price: '2$' },
-        { id: 'mythickey', name: 'مفتاح MYTHIC', price: '2.99$' },
-      ];
-      document.write(crates.map(crate => 
-        <div class="store-item">
-          <h3>${crate.name}</h3>
-          <p>السعر: ${crate.price}</p>
-          <button class="btn" onclick="toggleForm('${crate.id}')">شراء</button>
-          <div class="form" id="${crate.id}">
-            <input type="text" placeholder="اسم ماينكرافت" id="${crate.id}-name">
-            <select id="${crate.id}-pay">
-              <option>PayPal</option>
-              <option>FIB</option>
-              <option>زين كاش</option>
-              <option>فيزة</option>
-            </select>
-            <button class="btn" onclick="submitForm('${crate.name}', '${crate.price}', '${crate.id}-name', '${crate.id}-pay')">تأكيد الطلب</button>
-          </div>
-        </div>
-      ).join(''));
-    </script>
+    <div class="store-item">
+      <h3>🔑 مفتاح GEAR</h3>
+      <p>السعر: 0.49$</p>
+      <button class="btn" onclick="toggleForm('gear')">شراء</button>
+      <div class="form" id="gear">
+        <input type="text" placeholder="اسم ماينكرافت">
+        <input type="text" placeholder="اسم ديسكورد">
+        <select>
+          <option>PayPal</option>
+          <option>FIB</option>
+          <option>زين كاش</option>
+          <option>فيزة</option>
+          <option>Key Card</option>
+          <option>Super Key</option>
+        </select>
+        <button class="btn">تأكيد الطلب</button>
+      </div>
+    </div>
+
+    <!-- كرّر البلوك أعلاه لكل مفتاح (VIP, MVP, PVP, MYTHIC) بنفس الشكل مع تغيير الاسم والسعر -->
   </section>
 
   <section class="section" id="about">
@@ -241,43 +179,4 @@
   </section>
 
   <footer>
-    &copy; 2025 Airex Network - جميع الحقوق محفوظة
-  </footer>
-
-  <script>
-    function toggleForm(id) {
-      const form = document.getElementById(id);
-      form.style.display = form.style.display === "none" || form.style.display === "" ? "block" : "none";
-    }
-
-    function submitForm(item, price, nameId, payId) {
-      const name = document.getElementById(nameId).value.trim();
-      const payment = document.getElementById(payId).value;
-
-      if (!name) {
-        alert("يرجى إدخال اسم ماينكرافت.");
-        return;
-      }
-
-      const message = {
-        content: 🛒 طلب جديد من الموقع:\n• المنتج: ${item}\n• السعر: ${price}\n• الاسم: ${name}\n• الدفع: ${payment}
-      };
-
-      fetch("https://discord.com/api/webhooks/1399460141841256602/fyd6QGjSg42UzJ50Qn3Ce6pDpNB59_MEq1osNpyWKpaPzRz3GKaKdy-lzjv3jYxek20n", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(message)
-      }).then(response => {
-        if (response.ok) {
-          alert("تم إرسال الطلب بنجاح ✅");
-        } else {
-          alert("حدث خطأ أثناء إرسال الطلب.");
-        }
-      });
-    }
-  </script>
-
-</body>
-</html>
+    &copy; 2025 Airex Network
