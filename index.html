@@ -2,142 +2,282 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Airex Network - متجر ماينكرافت</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Airex Network store </title>
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #111;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #121212;
       color: #fff;
+    }
+
+    header {
+      background: #1f1f1f;
+      padding: 20px;
       text-align: center;
     }
-    .hero {
-      background: url('https://cdn.discordapp.com/attachments/1395454380769153115/1396930189136756888/ChatGPT_Image_Jul_21_2025_11_01_39_PM.png') center/cover no-repeat;
-      padding: 100px 20px;
-    }
-    h1 {
-      font-size: 3em;
-      margin: 0;
-    }
-    .shop-section {
-      padding: 50px 20px;
-    }
-    .product {
-      background-color: #1c1c1c;
-      border-radius: 15px;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-      padding: 20px;
-      margin: 20px auto;
-      width: 90%;
-      max-width: 400px;
-    }
-    .product h2 {
+
+    header img {
+      height: 80px;
       margin-bottom: 10px;
     }
-    .product button {
+
+    header h1 {
+      margin: 0;
+      color: #00ffd5;
+    }
+
+    nav {
+      background: #333;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: #00ffd5;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    .hero {
+      background: url('https://cdn.discordapp.com/attachments/1395454380769153115/1396930189136756888/ChatGPT_Image_Jul_21_2025_11_01_39_PM.png?ex=688a6c1e&is=68891a9e&hm=f85c348a25a6d9aa9567ceede22e46824a8df1d1efdbc170ecc8e4ad06423e54&') center/cover no-repeat;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero h2 {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 36px;
+    }
+
+    .section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .store-item {
+      background: #1c1c1c;
+      padding: 20px;
+      border: 1px solid #444;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+
+    .store-item h3 {
+      color: #00ffd5;
+    }
+
+    .btn {
+      background: #00ffd5;
+      color: #000;
       padding: 10px 20px;
       border: none;
-      border-radius: 8px;
-      background-color: #4CAF50;
-      color: white;
-      font-size: 1em;
+      border-radius: 6px;
       cursor: pointer;
+      font-weight: bold;
+      margin-top: 10px;
     }
+
+    .btn:hover {
+      background: #00c5aa;
+    }
+
     .form {
       display: none;
       margin-top: 15px;
+      background: #2a2a2a;
+      padding: 15px;
+      border-radius: 8px;
     }
-    .form input, .form select {
-      display: block;
-      width: 90%;
-      margin: 10px auto;
+
+    .form input,
+    .form select {
+      width: 100%;
       padding: 8px;
-      border-radius: 5px;
+      margin-top: 10px;
+      margin-bottom: 15px;
       border: none;
+      border-radius: 4px;
     }
-    .form .submit {
-      background-color: #2196F3;
+
+    footer {
+      text-align: center;
+      background: #1f1f1f;
+      padding: 20px;
+      font-size: 14px;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
-  <div class="hero">
-    <h1>🛒 متجر Airex Network</h1>
-    <p>أفضل متجر لشراء المفاتيح والرتب</p>
-  </div>
 
-  <div class="shop-section" id="crates">
+  <header>
+    <img src="https://cdn.discordapp.com/avatars/1269220546617282662/24207b94de7b8287ea14f16fd193c60a.png?size=1024" alt="logo">
+    <h1>Airex Network</h1>
+    <p>أقوى سيرفر ماينكرافت عربي 🎮</p>
+  </header>
+
+  <nav>
+    <a href="#home">الرئيسية</a>
+    <a href="#store">المتجر</a>
+    <a href="#crates">المفاتيح</a>
+    <a href="#about">عن السيرفر</a>
+    <a href="#contact">الدعم</a>
+  </nav>
+
+  <section class="hero" id="home">
+    <h2>انضم إلينا الآن<br>IP: mythicsmp.prmag.xyz:25580</h2>
+  </section>
+
+  <!-- المتجر -->
+  <section class="section" id="store">
+    <h2>🛒 المتجر</h2>
+
+    <!-- الرتب -->
+    <div class="store-item">
+      <h3>رتبة VIP</h3>
+      <p>السعر: 2.99$</p>
+      <button class="btn" onclick="toggleForm('vip')">شراء</button>
+      <div class="form" id="vip">
+        <input type="text" placeholder="اسم ماينكرافت" id="vip-name">
+        <select id="vip-pay">
+          <option>PayPal</option>
+          <option>FIB</option>
+          <option>زين كاش</option>
+          <option>فيزة</option>
+        </select>
+        <button class="btn" onclick="submitForm('رتبة VIP', '2.99$', 'vip-name', 'vip-pay')">تأكيد الطلب</button>
+      </div>
+    </div>
+
+    <div class="store-item">
+      <h3>رتبة MVP</h3>
+      <p>السعر: 5.99$</p>
+      <button class="btn" onclick="toggleForm('mvp')">شراء</button>
+      <div class="form" id="mvp">
+        <input type="text" placeholder="اسم ماينكرافت" id="mvp-name">
+        <select id="mvp-pay">
+          <option>PayPal</option>
+          <option>FIB</option>
+          <option>زين كاش</option>
+          <option>فيزة</option>
+        </select>
+        <button class="btn" onclick="submitForm('رتبة MVP', '5.99$', 'mvp-name', 'mvp-pay')">تأكيد الطلب</button>
+      </div>
+    </div>
+
+    <div class="store-item">
+      <h3>رتبة MYTHIC</h3>
+      <p>السعر: 9.99$</p>
+      <button class="btn" onclick="toggleForm('mythic')">شراء</button>
+      <div class="form" id="mythic">
+        <input type="text" placeholder="اسم ماينكرافت" id="mythic-name">
+        <select id="mythic-pay">
+          <option>PayPal</option>
+          <option>FIB</option>
+          <option>زين كاش</option>
+          <option>فيزة</option>
+        </select>
+        <button class="btn" onclick="submitForm('رتبة MYTHIC', '9.99$', 'mythic-name', 'mythic-pay')">تأكيد الطلب</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- المفاتيح -->
+  <section class="section" id="crates">
     <h2>🎁 المفاتيح (Crates)</h2>
 
+    <!-- تكرار نفس النموذج مع خيارات الدفع الجديدة -->
     <script>
       const crates = [
-        { name: "GEAR", price: "0.49" },
-        { name: "VIP", price: "1.00" },
-        { name: "MVP", price: "1.50" },
-        { name: "PVP", price: "2.00" },
-        { name: "MYTHIC", price: "2.99" }
+        { id: 'gear', name: 'مفتاح GEAR', price: '0.49$' },
+        { id: 'vipkey', name: 'مفتاح VIP', price: '1$' },
+        { id: 'mvpkey', name: 'مفتاح MVP', price: '1.5$' },
+        { id: 'pvpkey', name: 'مفتاح PVP', price: '2$' },
+        { id: 'mythickey', name: 'مفتاح MYTHIC', price: '2.99$' },
       ];
-
-      const roomId = "1399456771365539912";
-      const serverId = "1251165237739130930";
-      const webhookUrl = "https://discord.com/api/webhooks/XXX/YYY"; // 🔁 ضع رابط Webhook هنا
-
-      crates.forEach(crate => {
-        document.write(`
-          <div class="product">
-            <h2>🔑 ${crate.name} Crate</h2>
-            <p>السعر: $${crate.price}</p>
-            <button onclick="showForm('${crate.name}')">شراء</button>
-            <div class="form" id="form-${crate.name}">
-              <input type="text" placeholder="Minecraft Name" id="mc-${crate.name}" required>
-              <input type="text" placeholder="Discord Username" id="dc-${crate.name}" required>
-              <select id="pay-${crate.name}">
-                <option value="" disabled selected>اختر طريقة الدفع</option>
-                <option value="رصيد">رصيد</option>
-                <option value="كاش">كاش</option>
-                <option value="كارد">كارد</option>
-                <option value="Key Card">Key Card</option>
-                <option value="Super Key">Super Key</option>
-              </select>
-              <button class="submit" onclick="submitOrder('${crate.name}')">تأكيد الطلب</button>
-            </div>
+      document.write(crates.map(crate => 
+        <div class="store-item">
+          <h3>${crate.name}</h3>
+          <p>السعر: ${crate.price}</p>
+          <button class="btn" onclick="toggleForm('${crate.id}')">شراء</button>
+          <div class="form" id="${crate.id}">
+            <input type="text" placeholder="اسم ماينكرافت" id="${crate.id}-name">
+            <select id="${crate.id}-pay">
+              <option>PayPal</option>
+              <option>FIB</option>
+              <option>زين كاش</option>
+              <option>فيزة</option>
+            </select>
+            <button class="btn" onclick="submitForm('${crate.name}', '${crate.price}', '${crate.id}-name', '${crate.id}-pay')">تأكيد الطلب</button>
           </div>
-        `);
-      });
+        </div>
+      ).join(''));
+    </script>
+  </section>
 
-      function showForm(crate) {
-        document.querySelectorAll('.form').forEach(f => f.style.display = 'none');
-        document.getElementById(`form-${crate}`).style.display = 'block';
+  <section class="section" id="about">
+    <h2>👑 عن السيرفر</h2>
+    <p>سيرفر Airex Network يقدم تجربة ممتعة ومنافسة في عالم Minecraft. استمتع بالـ PvP، البناء، السيرفايفل، والمودات الجديدة! نرحب بالجميع سواء كنت مبتدئ أو محترف.</p>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>📞 الدعم</h2>
+    <p>انضم إلى ديسكورد للتواصل مع الإدارة وطلب المساعدة:</p>
+    <a class="btn" href="https://discord.gg/DXqvXbYqSz" target="_blank">دخول ديسكورد</a>
+  </section>
+
+  <footer>
+    &copy; 2025 Airex Network - جميع الحقوق محفوظة
+  </footer>
+
+  <script>
+    function toggleForm(id) {
+      const form = document.getElementById(id);
+      form.style.display = form.style.display === "none" || form.style.display === "" ? "block" : "none";
+    }
+
+    function submitForm(item, price, nameId, payId) {
+      const name = document.getElementById(nameId).value.trim();
+      const payment = document.getElementById(payId).value;
+
+      if (!name) {
+        alert("يرجى إدخال اسم ماينكرافت.");
+        return;
       }
 
-      async function submitOrder(crate) {
-        const mcName = document.getElementById(`mc-${crate}`).value;
-        const dcName = document.getElementById(`dc-${crate}`).value;
-        const payment = document.getElementById(`pay-${crate}`).value;
+      const message = {
+        content: 🛒 طلب جديد من الموقع:\n• المنتج: ${item}\n• السعر: ${price}\n• الاسم: ${name}\n• الدفع: ${payment}
+      };
 
-        if (!mcName || !dcName || !payment) {
-          alert("يرجى تعبئة جميع الحقول.");
-          return;
-        }
-
-        const content = `🛒 طلب شراء مفتاح **${crate}**
-👤 ماينكرافت: \`${mcName}\`
-🎮 ديسكورد: \`${dcName}\`
-💳 الدفع: \`${payment}\``;
-
-        try {
-          await fetch(webhookUrl, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ content })
-          });
-          alert("✅ تم إرسال الطلب بنجاح!");
-        } catch (err) {
+      fetch("https://discord.com/api/webhooks/1399460141841256602/fyd6QGjSg42UzJ50Qn3Ce6pDpNB59_MEq1osNpyWKpaPzRz3GKaKdy-lzjv3jYxek20n", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(message)
+      }).then(response => {
+        if (response.ok) {
+          alert("تم إرسال الطلب بنجاح ✅");
+        } else {
           alert("حدث خطأ أثناء إرسال الطلب.");
         }
-      }
-    </script>
-  </div>
+      });
+    }
+  </script>
+
 </body>
 </html>
