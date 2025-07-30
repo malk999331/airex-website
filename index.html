@@ -1,10 +1,9 @@
-You said:
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title> Airex Network store </title>
+  <title>Airex Network - سيرفر ماينكرافت</title>
   <style>
     body {
       margin: 0;
@@ -48,7 +47,7 @@ You said:
     }
 
     .hero {
-      background: url('https://cdn.discordapp.com/attachments/1395454380769153115/1396930189136756888/ChatGPT_Image_Jul_21_2025_11_01_39_PM.png?ex=688a6c1e&is=68891a9e&hm=f85c348a25a6d9aa9567ceede22e46824a8df1d1efdbc170ecc8e4ad06423e54&') center/cover no-repeat;
+      background: url('https://cdn.discordapp.com/attachments/1395454380769153115/1396930189136756888/ChatGPT_Image_Jul_21_2025_11_01_39_PM.png') center/cover no-repeat;
       height: 400px;
       display: flex;
       align-items: center;
@@ -210,7 +209,7 @@ You said:
         { id: 'pvpkey', name: 'مفتاح PVP', price: '2$' },
         { id: 'mythickey', name: 'مفتاح MYTHIC', price: '2.99$' },
       ];
-      document.write(crates.map(crate => 
+      document.write(crates.map(crate => `
         <div class="store-item">
           <h3>${crate.name}</h3>
           <p>السعر: ${crate.price}</p>
@@ -226,7 +225,7 @@ You said:
             <button class="btn" onclick="submitForm('${crate.name}', '${crate.price}', '${crate.id}-name', '${crate.id}-pay')">تأكيد الطلب</button>
           </div>
         </div>
-      ).join(''));
+      `).join(''));
     </script>
   </section>
 
@@ -261,7 +260,7 @@ You said:
       }
 
       const message = {
-        content: 🛒 طلب جديد من الموقع:\n• المنتج: ${item}\n• السعر: ${price}\n• الاسم: ${name}\n• الدفع: ${payment}
+        content: `🛒 طلب جديد من الموقع:\n• المنتج: ${item}\n• السعر: ${price}\n• الاسم: ${name}\n• الدفع: ${payment}`
       };
 
       fetch("https://discord.com/api/webhooks/1399460141841256602/fyd6QGjSg42UzJ50Qn3Ce6pDpNB59_MEq1osNpyWKpaPzRz3GKaKdy-lzjv3jYxek20n", {
@@ -281,4 +280,4 @@ You said:
   </script>
 
 </body>
-</html> 
+</html>
